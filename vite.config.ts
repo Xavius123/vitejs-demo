@@ -6,20 +6,20 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-
 export default defineConfig({
-  plugins: [react()],
-  css: {
-    modules: {
-      localsConvention: 'camelCase',
+    plugins: [react()],
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './src'),
+        },
     },
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
+    // css: {
+    //     modules: {
+    //         localsConvention: 'camelCase',
+    //     },
+    //     preprocessorOptions: { scss: { additionalData: `@import "./src/main/variables.scss";` } },
+    // },
+    server: {
+        port: 3000,
     },
-  },
-  server: {
-    port: 3000,
-  },
 });
