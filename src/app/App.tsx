@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import styles from './App.module.scss';
-import { Tag } from './shared/models';
-import { useImages } from './shared/hooks';
+import { Tag } from '@shared/models';
+import { useImages } from '@shared/hooks';
+import { TestComponent } from '@features/test/test.component';
 
 function App() {
     const [count, setCount] = useState(0);
@@ -10,10 +11,10 @@ function App() {
 
     return (
         <div className={styles.test}>
-            <div>TEST</div>
             <h1>Vite + React</h1>
+            <TestComponent isRed />
             <div>
-                <img src={image} className={styles.imageTest} alt="" />
+                <img src={image} className={styles.imageTest} alt="test" />
             </div>
             <div className="card">
                 <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>

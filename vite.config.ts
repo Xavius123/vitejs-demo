@@ -27,19 +27,16 @@ export default defineConfig({
             '@': path.resolve(__dirname, './src'),
             '@styles': path.resolve(__dirname, './src/styles'),
             '@shared': path.resolve(__dirname, './src/app/shared'),
-            '@enums': path.resolve(__dirname, './src/app/eums'),
             '@services': path.resolve(__dirname, './src/app/services'),
+            '@contexts': path.resolve(__dirname, './src/app/contexts'),
+            '@features': path.resolve(__dirname, './src/app/features'),
+            '@enums': path.resolve(__dirname, './src/shared/eums'),
         },
     },
     css: {
         modules: {
             localsConvention: 'camelCase',
         },
-        // preprocessorOptions: {
-        //     // scss: {
-        //     //     additionalData: `@use "@scss/variables";`,
-        //     // },
-        // },
     },
     define: {
         'process.env': env, // Inject environment variables

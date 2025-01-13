@@ -1,0 +1,52 @@
+@use 'sass:math';
+@use '.././abstracts/variables' as *;
+
+// Function to check if value is PX
+// Return: true/false
+@function isPixel($value) {
+    @return is-number($value) and index('px', unit($value)) != null;
+}
+
+// Function to convert px value into rem
+// Rem is most preferred value for web
+// How to use: font-size: toRem(18px)
+@function toRem($pixel) {
+    @if (unitless($pixel)) {
+        $pixel: $pixel * 1px;
+    }
+
+    @if (unitless($base-size)) {
+        $base-size: $base-size * 1px;
+    }
+
+    @return #{math.div($pixel, $base-size)}rem;
+}
+
+// Function to convert unit line-height values to unitless
+// Unitless line-height values are preferred
+// How to use: line-height: toLineHeightUnit(18px, 36px)
+@function toLineHeightUnit($font-size, $line-height) {
+    @if (unitless($font-size)) {
+        $font-size: $font-size * 1px;
+    }
+
+    @if (unitless($line-height)) {
+        $line-height: $line-height * 1px;
+    }
+    @return math.div($line-height, $font-size);
+}
+
+// Function to convert px to rem inside calc
+// Default with minus expression
+// Return example: calc(100vh - 10rem);
+@function calcOffset($value1, $value2, $expression: '-') {
+    @if isPixel($value1) {
+        $value1: toRem($value1);
+    }
+
+    @if isPixel($value2) {
+        $value2: toRem($value2);
+    }
+
+    @return calc(#{$value1 $expression $value2});
+}
