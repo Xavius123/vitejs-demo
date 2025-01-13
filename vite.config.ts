@@ -30,7 +30,7 @@ export default defineConfig({
             '@services': path.resolve(__dirname, './src/app/services'),
             '@contexts': path.resolve(__dirname, './src/app/contexts'),
             '@features': path.resolve(__dirname, './src/app/features'),
-            '@enums': path.resolve(__dirname, './src/shared/eums'),
+            '@enums': path.resolve(__dirname, './src/app/shared/enums'),
         },
     },
     css: {

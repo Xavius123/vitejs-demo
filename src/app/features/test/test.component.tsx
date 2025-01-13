@@ -1,16 +1,16 @@
 import { ReactElement } from 'react';
 import styles from './test.module.scss';
-import { Color } from '../../shared/enums';
+import { Color } from '@enums/color.enum';
 
 interface TestComponentProps {
     color?: Color;
     isRed: boolean;
+    text: string;
 }
 
 export const TestComponent = (props: TestComponentProps): ReactElement => {
-    const { color, isRed = false } = props;
+    const { color, isRed = false, text } = props;
     console.log(color, isRed);
-    const TestComponent = 'TEST Component';
 
-    return <div className={styles.testComponent}>{TestComponent}</div>;
+    return <div className={styles.testComponent}>{text}</div>;
 };

@@ -10,7 +10,8 @@
             "@/*": ["./src"],
             "@styles/*": ["./src/styles"],
             "@shared/*": ["./src/app/shared/*"],
-            "@features/*": ["./src/app/features/*"]
+            "@features/*": ["./src/app/features/*"],
+            "@enums/*": ["./src/app/shared/enums/*"]
         },
         /* Bundler mode */
         "moduleResolution": "bundler",

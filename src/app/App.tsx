@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './App.module.scss';
 import { Tag } from '@shared/models';
 import { useImages } from '@shared/hooks';
@@ -9,10 +9,15 @@ function App() {
     const [tag, setTag] = useState<Tag>({ id: 1, name: 'Tag 1' });
     const { image } = useImages();
 
+    useEffect(() => {
+        console.log('tag', tag);
+        setTag({ id: 2, name: 'Tag 2' });
+    }, []);
+
     return (
         <div className={styles.test}>
             <h1>Vite + React</h1>
-            <TestComponent isRed />
+            <TestComponent isRed text="NAF Connect 2" />
             <div>
                 <img src={image} className={styles.imageTest} alt="test" />
             </div>
