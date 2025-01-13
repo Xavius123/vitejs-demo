@@ -6,9 +6,11 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// ENV shifting logic
 // load env options
+const mode = process.env.NODE_ENV || 'development';
 const env = loadEnv(mode, process.cwd(), '');
-// scripts to add 
+// scripts to add
 // npm run dev -- --mode development
 // npm run build -- --mode qa
 // npm run build -- --mode uat
@@ -23,17 +25,25 @@ export default defineConfig({
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
+            '@styles': path.resolve(__dirname, './src/styles'),
+            '@shared': path.resolve(__dirname, './src/app/shared'),
+            '@enums': path.resolve(__dirname, './src/app/eums'),
+            '@services': path.resolve(__dirname, './src/app/services'),
         },
     },
-    // css: {
-    //     modules: {
-    //         localsConvention: 'camelCase',
-    //     },
-    //     preprocessorOptions: { scss: { additionalData: `@import "./src/main/variables.scss";` } },
-    // },
+    css: {
+        modules: {
+            localsConvention: 'camelCase',
+        },
+        // preprocessorOptions: {
+        //     // scss: {
+        //     //     additionalData: `@use "@scss/variables";`,
+        //     // },
+        // },
+    },
     define: {
         'process.env': env, // Inject environment variables
-      },
+    },
     server: {
         port: 3000,
     },

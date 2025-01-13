@@ -1,4 +1,4 @@
-@import '@/scss/abstracts/_variables.scss';
+@use '../scss/main.scss' as *;
 
 #root {
     max-width: 1280px;
