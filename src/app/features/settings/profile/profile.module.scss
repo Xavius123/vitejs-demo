@@ -1,0 +1,11 @@
+@use '@/scss/abstracts/_variables.scss' as *;
+
+/*---------------------------------------------------------------------------
+  Profile Page
+---------------------------------------------------------------------------*/
+
+.profile {
+    display: grid;
+    color: $primary-color-test;
+    grid-template-columns: 1fr 1fr;
+}

@@ -12,5 +12,9 @@ export const TestComponent = (props: TestComponentProps): ReactElement => {
     const { color, isRed = false, text } = props;
     console.log(color, isRed);
 
-    return <div className={styles.testComponent}>{text}</div>;
+    return (
+        <div className={styles.testComponent} data-testid="test-component">
+            {text}
+        </div>
+    );
 };

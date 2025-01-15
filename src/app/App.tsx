@@ -3,6 +3,7 @@ import styles from './App.module.scss';
 import { Tag } from '@shared/models';
 import { useImages } from '@shared/hooks';
 import { TestComponent } from '@features/test/test.component';
+import Profile from '@features/settings/profile/profile.component';
 
 function App() {
     const [count, setCount] = useState(0);
@@ -18,6 +19,7 @@ function App() {
         <div className={styles.test}>
             <h1>Vite + React</h1>
             <TestComponent isRed text="NAF Connect 2" />
+            <Profile />
             <div>
                 <img src={image} className={styles.imageTest} alt="test" />
             </div>
